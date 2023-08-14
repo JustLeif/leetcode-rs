@@ -1,4 +1,8 @@
 pub mod solutions;
 
 #[cfg(test)]
-mod tests {}
+mod tests {
+
+    #[test]
+    fn solution_7() {}
+}
