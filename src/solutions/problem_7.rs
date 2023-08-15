@@ -11,4 +11,17 @@
 /// | 120 -> 21
 ///
 /// | 1534236469 -> 0
-pub fn solution() {}
+pub fn solution(input: i32) -> i32 {
+    return reverse(input).unwrap_or(0);
+}
+
+fn reverse(mut input: i32) -> Option<i32> {
+    let mut output: i32 = 0;
+    let mut temp: i32;
+    while input != 0 {
+        temp = input % 10; // 123 -> temp = 3
+        input = input / 10; // 123 -> input = 12
+        output = output.checked_mul(10)?.checked_add(temp)?;
+    }
+    return Some(output);
+}
