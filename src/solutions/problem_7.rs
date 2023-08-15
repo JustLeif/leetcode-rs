@@ -11,6 +11,7 @@
 /// | 120 -> 21
 ///
 /// | 1534236469 -> 0
+/// Guide https://www.youtube.com/watch?v=9ng9rMoT7T4&lc=UgwXtg1C4I1rgoYjzHB4AaABAg
 pub fn solution(input: i32) -> i32 {
     return reverse(input).unwrap_or(0);
 }
