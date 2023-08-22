@@ -27,3 +27,13 @@ fn reverse(mut input: i32) -> Option<i32> {
     }
     return Some(output);
 }
+
+#[cfg(test)]
+#[test]
+fn solution_7() {
+    assert_eq!(solution(123), 321);
+    assert_eq!(solution(-123), -321);
+    assert_eq!(solution(120), 21);
+    assert_eq!(solution(0), 0);
+    assert_eq!(solution(1534236469), 0);
+}
