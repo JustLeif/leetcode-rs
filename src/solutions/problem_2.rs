@@ -11,6 +11,44 @@
 /// 342 + 465 = 807
 ///
 /// Output = [7,0,8]
+pub fn solution(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    let mut l1_current = l1;
+    let mut l2_current = l2;
+    let mut carry = 0;
+
+    let mut output = Some(Box::new(ListNode::new(0)));
+    let mut output_current = output.as_mut(); // Could also do `&mut output;`
+    
+    while l1_current.is_some() || l2_current.is_some() || carry > 0 {
+        let mut total = carry;
+        carry = 0;
+
+        if let Some(node) = l1_current {
+            total += node.val;
+            l1_current = node.next;
+        }
+
+        if let Some(node) = l2_current {
+            total += node.val;
+            l2_current = node.next;
+        }
+
+        if total >= 0 {
+            carry = total / 10;
+            total = total % 10;
+        }
+
+        if let Some(node) = output_current {
+            node.next = Some(Box::new(ListNode::new(total))); 
+            output_current = node.next.as_mut()
+        }
+
+
+    }
+
+    return output.unwrap().next;
+}
+
 
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
