@@ -71,3 +71,24 @@ fn test_crystal_ball_search() {
     let test_arr = vec![false, true, true, true, true];
     assert_eq!(crystal_ball_search(test_arr), 1);
 }
+
+pub fn bubble_sort(arr: &mut Vec<usize>) {
+    for i in 0..arr.len() {
+        for j in 0..(arr.len() - 1 - i) {
+            if arr[j] > arr[j + 1] {
+                arr.swap(j, j + 1);
+            }
+        }
+    }
+}
+
+#[cfg(test)]
+#[test]
+fn test_bubble_sort() {
+    let mut arr: Vec<usize> = vec![0, 20, 10, 5, 6, 6, 4];
+    bubble_sort(&mut arr);
+    assert_eq!(arr, vec!(0, 4, 5, 6, 6, 10, 20));
+    let mut arr: Vec<usize> = vec![1000, 492, 129, 5, 6, 6, 4];
+    bubble_sort(&mut arr);
+    assert_eq!(arr, vec!(4, 5, 6, 6, 129, 492, 1000));
+}
