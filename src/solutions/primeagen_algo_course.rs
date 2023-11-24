@@ -1,3 +1,13 @@
+// runtime of O(n)
+pub fn linear_search(arr: Vec<isize>, val: isize) -> isize {
+    for (idx, value) in arr.iter().enumerate() {
+        if value == &val {
+            return idx as isize;
+        }
+    }
+    return -1;
+}
+
 // Pass in a sorted vector to obtain an index of val in O(log n) time. Recieve -1 if val is not in arr.
 pub fn binary_search(arr: Vec<isize>, val: isize) -> isize {
     let mut low: usize = 0;
