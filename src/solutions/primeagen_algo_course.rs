@@ -1,3 +1,5 @@
+use std::fmt::Debug;
+
 // runtime of O(n)
 pub fn linear_search(arr: Vec<isize>, val: isize) -> isize {
     for (idx, value) in arr.iter().enumerate() {
@@ -91,4 +93,18 @@ fn test_bubble_sort() {
     let mut arr: Vec<usize> = vec![1000, 492, 129, 5, 6, 6, 4];
     bubble_sort(&mut arr);
     assert_eq!(arr, vec!(4, 5, 6, 6, 129, 492, 1000));
+}
+
+pub fn array_stuff<T: Debug>(arr: &mut [T; 5]) {
+    println!("{:?}", arr);
+}
+
+#[cfg(test)]
+#[test]
+fn test_array() {
+    let mut arr: [&str; 5] = ["val", "val", "notval", "unique", "stuff"];
+    array_stuff(&mut arr);
+    arr = ["Value?"; 5];
+    array_stuff(&mut arr);
+    println!("{:?}", 0..arr.len());
 }
