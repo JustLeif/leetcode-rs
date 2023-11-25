@@ -108,3 +108,5 @@ fn test_array() {
     array_stuff(&mut arr);
     println!("{:?}", 0..arr.len());
 }
+
+// Note to self, never implement a linked list in Rust !
