@@ -19,6 +19,7 @@ pub fn solution(nums: Vec<i32>, target: i32) -> [i32; 2] {
     return [0, 0];
 }
 
+#[cfg(test)]
 #[test]
 fn test_problem_1() {
     assert_eq!(solution(vec![0, 49, 29, 39, 329], 329), [0, 4]);

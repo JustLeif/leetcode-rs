@@ -5,3 +5,5 @@ pub mod problem_2;
 pub mod problem_35;
 pub mod problem_7;
 pub mod problem_74;
+
+pub mod problem_13;
