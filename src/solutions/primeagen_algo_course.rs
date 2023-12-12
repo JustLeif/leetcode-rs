@@ -1,4 +1,4 @@
-use std::fmt::Debug;
+use std::{cell::RefCell, fmt::Debug, rc::Rc};
 
 // runtime of O(n)
 pub fn linear_search(arr: Vec<isize>, val: isize) -> isize {
@@ -110,3 +110,34 @@ fn test_array() {
 }
 
 // Note to self, never implement a linked list in Rust !
+// This is a very UNOPTIMAL LinkedList implementation.
+struct DoublyLinkedListNode {
+    pub val: i32,
+    pub next: Pointer,
+    pub prev: Pointer,
+}
+
+type Pointer = Option<Rc<RefCell<DoublyLinkedListNode>>>;
+
+struct DoublyLinkedList {
+    head: Pointer,
+    tail: Pointer,
+}
+
+impl DoublyLinkedList {
+    pub fn new(val: i32) -> DoublyLinkedList {
+        let node = Some(Rc::new(RefCell::new(DoublyLinkedListNode {
+            val,
+            prev: None,
+            next: None,
+        })));
+        DoublyLinkedList {
+            head: node.clone(),
+            tail: node.clone(),
+        }
+    }
+}
+
+#[cfg(test)]
+#[test]
+fn test_doubly_linked_list() {}
