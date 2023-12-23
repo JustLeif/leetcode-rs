@@ -112,19 +112,25 @@ fn test_array() {
 // Note to self, never implement a linked list in Rust !
 // This is a very UNOPTIMAL LinkedList implementation.
 struct DoublyLinkedListNode {
+    #[allow(unused)]
     pub val: i32,
+    #[allow(unused)]
     pub next: Pointer,
+    #[allow(unused)]
     pub prev: Pointer,
 }
 
 type Pointer = Option<Rc<RefCell<DoublyLinkedListNode>>>;
 
 struct DoublyLinkedList {
+    #[allow(unused)]
     head: Pointer,
+    #[allow(unused)]
     tail: Pointer,
 }
 
 impl DoublyLinkedList {
+    #[allow(unused)]
     pub fn new(val: i32) -> DoublyLinkedList {
         let node = Some(Rc::new(RefCell::new(DoublyLinkedListNode {
             val,
